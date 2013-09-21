@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Elección de una técnica de cocreacion</title>
+    <meta name="description" content="Gracias a este software web podemos elegir la técnica de cocreación más apta para su proyecto o problema específico, basándonos en algoritmos de lógica difusa" />
+    <meta name="author" content="Diego Ossa" />
+    <link href="css/impress.css" rel="stylesheet" />
+    <script src="js/jquery-2.0.3.js"></script>
+</head>
+<body class="impress-not-supported">
+    <div class="fallback-message">
+        <p>Su navegador <b>no soporta las animaciones</b>, la interfaz será mostrada de forma secuencial.</p>
+        <p>Para una mejor experiencia puede usar las últimas versiones de los navegadores: <a href="https://www.google.com/intl/es/chrome/browser/?hl=es"><b>Chrome</b></a>, <a href="http://www.apple.com/es/safari/"><b>Safari</b></a> o <a href="http://www.mozilla.org/es-ES/firefox/new/"><b>Firefox</b></a></p>
+    </div>
+    <div id="impress">
+        <!--<div class="step centered" data-x="0" data-y="0" data-z="5000" data-rotate-y="270">
+            <h1 style="color: #0076F5;">Cargando</h1>
+            <div class="bubblingG">
+                <span id="bubblingG_1"></span>
+                <span id="bubblingG_2"></span>
+                <span id="bubblingG_3"></span>
+            </div>
+            <input type="button" name="name" value="Test" onclick="getDataWS()" />
+        </div>-->
+
+        <div class="step centered" data-x="0" data-y="0" data-z="0" onload="initializeService()">
+            <img src="img/logo_cocreacion.png" width="300" height="414" />
+            <p class="content">Software para la elección de técnicas de cocreación usando algoritmos de lógica difusa</p>
+            <a class="next" href="javascript:impress().next();">
+                <img src="img/siguiente.png" width="99" height="40" alt="next" /></a>
+        </div>
+
+        <div class="step centered" data-x="0" data-y="0" data-z="0" data-rotate-y="90">
+            <img src="img/udem.png" width="300" height="181" />
+            <p>Por: Diego Alejandro Ossa</p>
+            <p>Docente: Liliana González Palacio</p>
+            <div class="footer-options">
+                <a class="next" href="javascript:impress().next()">
+                    <img src="img/siguiente.png" width="99" height="40" alt="next" /></a>
+                <a class="prev" href="javascript:impress().prev()">
+                    <img src="img/anterior.png" width="100" height="42" alt="prev" /></a>
+            </div>
+        </div>
+
+        <div class="step" data-x="5000" data-y="0" data-z="-5000" data-rotate-y="180">
+            <h1 style="color: #09C;">Problema a solucionar:</h1>
+            <p class="content">¿Porqué busca implementar una técnica de cocreación?</p>
+
+            <form id="form_problema">
+                <!--<input type="checkbox" name="check_problema" id="redes" value="34" />
+                <label for="redes">Redes y conexiones entre participantes</label><br>
+                <input type="checkbox" name="check_problema" id="conocimiento" value="35" />
+                <label for="conocimiento">Generación de conocimiento</label><br>
+                <input type="checkbox" name="check_problema" id="aprendizaje" value="36" />
+                <label for="aprendizaje">Generar aprendizaje</label><br>
+                <input type="checkbox" name="check_problema" id="productividad" value="37" />
+                <label for="productividad">Generar productividad</label><br>
+                <input type="checkbox" name="check_problema" id="errores" value="38" />
+                <label for="errores">Reducción  de errores</label><br>
+                <input type="checkbox" name="check_problema" id="com_practicas" value="39" />
+                <label for="com_practicas">Crear comunidades prácticas</label><br>
+                <input type="checkbox" name="check_problema" id="estrategias" value="40" />
+                <label for="estrategias">Generar estrategias</label><br>
+                <input type="checkbox" name="check_problema" id="entretenimiento" value="41" />
+                <label for="entretenimiento">Generar entretenimiento</label><br>
+                <input type="checkbox" name="check_problema" id="adm_conocimiento" value="42" />
+                <label for="adm_conocimiento">Visualizar administración de conocimiento</label><br>
+                <input type="checkbox" name="check_problema" id="ident_conocimiento" value="43" />
+                <label for="ident_conocimiento">Identificar conocimiento de los participantes</label><br>
+                <input type="checkbox" name="check_problema" id="mejores_practicas" value="44" />
+                <label for="mejores_practicas">Generar mejores prácticas</label><br>
+                <input type="checkbox" name="check_problema" id="ident_problemas" value="45" />
+                <label for="ident_problemas">Identificar problemas</label><br>
+                <input type="checkbox" name="check_problema" id="ident_situacion" value="46" />
+                <label for="ident_situacion">Identificar situación actual</label>-->
+            </form>
+            <div class="error" id="error_problema">
+                <p>Debe seleccionar mínimo una opción.</p>
+            </div>
+            <div class="footer-options">
+                <a class="next" href="javascript:impress().next()" onclick="return check_problemas()">
+                    <img src="img/siguiente.png" width="99" height="40" alt="next"></a>
+                <a class="prev" href="javascript:impress().prev()">
+                    <img src="img/anterior.png" width="100" height="42" alt="prev"></a>
+            </div>
+        </div>
+
+
+        <div class="step" data-x="10000" data-y="0" data-z="-10000" data-rotate-y="0">
+            <h1 style="color: #C30;">Fase donde se aplica la técnica:</h1>
+            <p class="content">¿Qué tan avanzado se encuentra su proyecto?</p>
+
+            <form id="form_fase">
+                <!--<input type="radio" name="fase" id="temprana" value="1" checked />
+                <label for="temprana">Estoy iniciando</label><br>
+                <input type="radio" name="fase" id="intermedia" value="2" />
+                <label for="intermedia">En una fase intermedia</label><br>
+                <input type="radio" name="fase" id="avanzada" value="3" />
+                <label for="avanzada">En una fase avanzada</label>-->
+            </form>
+            <div class="footer-options">
+                <a class="next" href="javascript:impress().next()" onclick="check_fase()">
+                    <img src="img/siguiente.png" width="99" height="40" alt="next"></a>
+                <a class="prev" href="javascript:impress().prev()">
+                    <img src="img/anterior.png" width="100" height="42" alt="prev"></a>
+            </div>
+        </div>
+
+        <div class="step" data-x="15000" data-y="0" data-z="-15000" data-rotate-y="180">
+            <h1 style="color: #693;">Número de participantes:</h1>
+            <p class="content">¿Cuántas personas participan en la técnica?</p>
+            <form class="centered" id="form_no_participantes" name="form_no_participantes">
+            </form>
+            <div class="error" id="error_no_participantes">
+                <p>Debe ingresar un número mínimo de participantes</p>
+            </div>
+            <div class="footer-options">
+                <a class="next" href="javascript:impress().next()" onclick="return check_no_participantes()">
+                    <img src="img/siguiente.png" width="99" height="40" alt="next"></a>
+                <a class="prev" href="javascript:impress().prev()">
+                    <img src="img/anterior.png" width="100" height="42" alt="prev"></a>
+            </div>
+        </div>
+
+        <div class="step" data-x="20000" data-y="0" data-z="-20000" data-rotate-y="0">
+            <h1 style="color: #693;">Nivel de conocimiento de los participantes:</h1>
+            <p class="content">¿Qué grado de conocimiento necesitan los participantes?</p>
+
+            <form id="form_nivel_conocimiento" name="form_nivel_conocimiento">
+                <!--<input type="radio" name="nivel" id="basico_conocimiento" value="7" checked />
+                <label for="basico_conocimiento">Básico</label><br />
+                <input type="radio" name="nivel" id="medio_conocimiento" value="8" />
+                <label for="medio_conocimiento">Medio</label><br />
+                <input type="radio" name="nivel" id="alto_conocimiento" value="9" />
+                <label for="alto_conocimiento">Alto</label><br />
+                <input type="radio" name="nivel" id="avanzado_conocimiento" value="10" />
+                <label for="avanzado_conocimiento">Avanzado</label><br />-->
+            </form>
+            <div class="footer-options">
+                <a class="next" href="javascript:impress().next()" onclick="return check_nivel_conocimiento()">
+                    <img src="img/siguiente.png" width="99" height="40" alt="next" /></a>
+                <a class="prev" href="javascript:impress().prev()">
+                    <img src="img/anterior.png" width="100" height="42" alt="prev" /></a>
+            </div>
+        </div>
+
+        <div class="step" data-x="25000" data-y="0" data-z="-25000" data-rotate-y="180">
+            <h1 style="color: #63F;">Ubicación:</h1>
+            <p class="content">¿De que forma se encuentran los participantes?</p>
+
+            <form id="form_ubicacion" name="form_nivel_conocimiento">
+                <!--<input type="radio" name="ubicacion" id="presencial" value="11" checked />
+                <label for="presencial">Presencialmente</label><br>
+                <input type="radio" name="ubicacion" id="virtual" value="12" />
+                <label for="virtual">Virtualmente</label>-->
+            </form>
+            <div class="footer-options">
+                <a class="next" href="javascript:impress().next()" onclick="check_ubicacion()">
+                    <img src="img/siguiente.png" width="99" height="40" alt="next"></a>
+                <a class="prev" href="javascript:impress().prev()">
+                    <img src="img/anterior.png" width="100" height="42" alt="prev"></a>
+            </div>
+        </div>
+
+        <div class="step" data-x="30000" data-y="0" data-z="-30000" data-rotate-y="0">
+            <h1 style="color: #F36;">Participantes:</h1>
+            <p class="content">¿Quienes participan en la técnica?</p>
+            <form id="form_participantes" name="form_participantes">
+                <!--                <input type="checkbox" name="participantes" id="gerente" value="21" />
+                <label for="gerente">Gerente</label><br>
+                <input type="checkbox" name="participantes" id="empleados" value="22" />
+                <label for="empleados">Empleados</label><br>
+                <input type="checkbox" name="participantes" id="moderadores" value="23" />
+                <label for="moderadores">Moderadores</label><br>
+                <input type="checkbox" name="participantes" id="usuarios_finales" value="24" />
+                <label for="usuarios_finales">Usuarios finales</label><br>
+                <input type="checkbox" name="participantes" id="miembros_grupo" value="25" />
+                <label for="miembros_grupo">Miembros de un grupo</label><br>
+                <input type="checkbox" name="participantes" id="expertos" value="26" />
+                <label for="expertos">Expertos en tema de discusión</label><br>
+                <input type="checkbox" name="participantes" id="secretario" value="27" />
+                <label for="secretario">Secretario</label><br>
+                <input type="checkbox" name="participantes" id="facilitador" value="28" />
+                <label for="facilitador">Facilitador o coordinador de la técnica</label><br>-->
+            </form>
+            <div class="error" id="error_participantes">
+                <p>Debe seleccionar mínimo una opción</p>
+            </div>
+            <div class="footer-options">
+                <a class="next" href="javascript:impress().next()" onclick="return check_participantes()">
+                    <img src="img/siguiente.png" width="99" height="40" alt="next" /></a>
+                <a class="prev" href="javascript:impress().prev()">
+                    <img src="img/anterior.png" width="100" height="42" alt="prev" /></a>
+            </div>
+        </div>
+
+        <div class="step" data-x="35000" data-y="0" data-z="-35000" data-rotate-y="180">
+            <h1 style="color: #C90;">Duración:</h1>
+            <p class="content">¿Qué tiempo puede emplear en el desarrollo de la técnica?</p>
+            <form id="form_duracion" class="centered" name="form_duracion">
+                <input type="number" name="input_duracion" id="input_duracion" placeholder="Ingrese un número" min="1" required />
+                <select id="select_duracion" name="select_duracion">
+                    <option value="1">Minutos</option>
+                    <option value="60">Horas</option>
+                    <option value="480">Días</option>
+                    <option value="14400">Meses</option>
+                    <option value="5184000">Años</option>
+                </select>
+            </form>
+            <div class="error" id="error_duracion">
+                <p>Debe ingresar un número mínimo para la duración</p>
+            </div>
+
+            <!--<form id="form_duracion" name="form_duracion">
+        	<input type="radio" name="duracion" id="muy_baja_duracion" value="13" checked/>
+            <label for="muy_baja_duracion">1 hora o menos</label><br>
+            <input type="radio" name="duracion" id="baja_duracion" value="14"/>
+            <label for="baja_duracion">De 1 a 4 días</label><br>
+            <input type="radio" name="duracion" id="media_duracion" value="15"/>
+            <label for="media_duracion">De 1 a 3 semanas</label><br>
+            <input type="radio" name="duracion" id="alta_duracion" value="16"/>
+            <label for="alta_duracion">De 1 a 6 meses</label><br>
+            <input type="radio" name="duracion" id="muy_alta_duracion" value="17"/>
+            <label for="muy_alta_duracion">6 meses o más</label>
+        </form>-->
+
+            <div class="footer-options">
+                <a class="next" href="javascript:impress().next()" onclick="return check_duracion()">
+                    <img src="img/siguiente.png" width="99" height="40" alt="next" /></a>
+                <a class="prev" href="javascript:impress().prev()">
+                    <img src="img/anterior.png" width="100" height="42" alt="prev" /></a>
+            </div>
+        </div>
+
+        <div class="step" data-x="40000" data-y="0" data-z="-40000" data-rotate-y="0">
+            <h1 style="color: #699;">Costo:</h1>
+            <p class="content">¿Que tipo de inversión desea hacer en la técnica?</p>
+
+            <form id="form_costo" name="form_costo">
+                <!--                <input type="radio" name="costo" id="bajo_costo" value="18" checked />
+                <label for="bajo_costo">No deseo hacer una gran inversión</label><br>
+                <input type="radio" name="costo" value="19" id="medio_costo" />
+                <label for="medio_costo">Puedo hacer una inversión mediana</label><br>
+                <input type="radio" name="costo" value="20" id="alto_costo" />
+                <label for="alto_costo">Puedo hacer una gran inversión</label>-->
+            </form>
+            <div class="footer-options">
+                <a class="next" href="javascript:impress().next()" onclick="check_costo()">
+                    <img src="img/siguiente.png" width="99" height="40" alt="next" /></a>
+                <a class="prev" href="javascript:impress().prev()">
+                    <img src="img/anterior.png" width="100" height="42" alt="prev" /></a>
+            </div>
+        </div>
+
+        <div class="step" data-x="45000" data-y="0" data-z="-45000" data-rotate-y="180">
+            <h1 style="color: #660;">Escalabilidad:</h1>
+            <p class="content">¿Que tan escalable puede ser el grupo de participantes?</p>
+
+            <form id="form_escalabilidad" name="form_escalabilidad">
+                <!--<input type="radio" name="escalabilidad" id="bajo_escalabilidad" value="18" checked />
+                <label for="bajo_escalabilidad">Necesito un número específico de participantes</label><br>
+                <input type="radio" name="escalabilidad" value="19" id="medio_escalabilidad" />
+                <label for="medio_escalabilidad">Puede crecer el número, pero no mucho</label><br>
+                <input type="radio" name="escalabilidad" value="20" id="alto_escalabilidad" />
+                <label for="alto_escalabilidad">Necesito que la técnica funcione para cualquier cantidad de participantes</label>-->
+            </form>
+            <div class="footer-options">
+                <a class="next" href="javascript:impress().next()" onclick="check_escalabilidad(); rateTecnica()">
+                    <img src="img/siguiente.png" width="99" height="40" alt="next" /></a>
+                <a class="prev" href="javascript:impress().prev()">
+                    <img src="img/anterior.png" width="100" height="42" alt="prev" /></a>
+            </div>
+        </div>
+
+
+        <!--<div class="step" data-x="50000" data-y="0" data-z="-50000" data-rotate-y="0">
+            <input type="button" value="Test" id="LlamadaServicio" name="LlamadaServicio" onclick="rateTecnica()" />
+        </div>-->
+
+
+        <!--        <div class="step centered" data-x="0" data-y="0" data-z="5000" data-rotate-y="270">
+            <h1 style="color: #0076F5;">Cargando resultados</h1>
+            <div class="bubblingG">
+                <span id="bubblingG_1"></span>
+                <span id="bubblingG_2"></span>
+                <span id="bubblingG_3"></span>
+            </div>
+        </div>-->
+
+        <div class="step" data-x="0" data-y="0" data-z="5000" data-rotate-x="45">
+            <h1 style="color: #660;">La mejor técnica a aplicar sus necesidades es:</h1>
+            <br />
+            <div id="ganadora">
+                <!--<h2>Titulo</h2>
+                <p class="descripcion">Desctdsjkfsdf</p>-->
+            </div>
+            <h3>Además puede ver también:</h3>
+            <br />
+            <div id="segunda" class="otras_tecnicas">
+                <!--<h2>Titulo</h2>-->
+            </div>
+            <div id="tercera" class="otras_tecnicas">
+                <!--<h2>Titulo</h2>-->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/impress.js"></script>
+    <script>impress().init();</script>
+
+</body>
+</html>
