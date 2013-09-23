@@ -49,6 +49,15 @@ namespace CocreacionWeb {
         protected global::System.Web.UI.WebControls.Panel pnlTecnicaDetalle;
         
         /// <summary>
+        /// Control btnAtras.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnAtras;
+        
+        /// <summary>
         /// Control lblNombreTecnicaDetalle.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,24 @@ namespace CocreacionWeb {
         protected global::System.Web.UI.WebControls.Label lblNombreTecnicaDetalle;
         
         /// <summary>
+        /// Control txtNombreTecnicaDetalle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNombreTecnicaDetalle;
+        
+        /// <summary>
+        /// Control btnChangeTitle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnChangeTitle;
+        
+        /// <summary>
         /// Control Label1.
         /// </summary>
         /// <remarks>
@@ -65,6 +92,24 @@ namespace CocreacionWeb {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// Control txtDescripcionDetalle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDescripcionDetalle;
+        
+        /// <summary>
+        /// Control btnChangeDescription.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnChangeDescription;
         
         /// <summary>
         /// Control lblDescripcionDetalle.
@@ -85,6 +130,15 @@ namespace CocreacionWeb {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
+        /// Control btnNuevoPaso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnNuevoPaso;
+        
+        /// <summary>
         /// Control pnlPasos.
         /// </summary>
         /// <remarks>
@@ -92,6 +146,15 @@ namespace CocreacionWeb {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlPasos;
+        
+        /// <summary>
+        /// Control pnlNuevoPaso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlNuevoPaso;
         
         /// <summary>
         /// Control Label3.
@@ -103,12 +166,39 @@ namespace CocreacionWeb {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Control PanelLinks.
+        /// Control btnNuevoLink.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelLinks;
+        protected global::System.Web.UI.WebControls.LinkButton btnNuevoLink;
+        
+        /// <summary>
+        /// Control pnlLinks.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlLinks;
+        
+        /// <summary>
+        /// Control pnlNuevoLink.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlNuevoLink;
+        
+        /// <summary>
+        /// Control lblAceptar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblAceptar;
     }
 }

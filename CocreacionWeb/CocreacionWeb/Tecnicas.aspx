@@ -11,15 +11,13 @@
 </head>
 <body>
     <header>
-        <div class="navbar navbar navbar-fixed-top">
+        <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="brand" href="#">Cocreación</a>
+                    <a class="brand">Cocreación</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="active"><a href="#">Técnicas</a></li>
-                            <li><a href="#caracteristicas">Características</a></li>
-                            <li><a href="#criterios">Criterios</a></li>
+                            <li class="active"><a>Administrar Técnicas</a></li>                          
                         </ul>
                     </div>
                 </div>
@@ -63,13 +61,11 @@
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:LinkButton ID="btnSeleccionar" runat="server" ToolTip="Ver características de la técnica" CommandName="Select"><i class="icon-search"></i></asp:LinkButton>
+                                <asp:LinkButton ID="btnSeleccionar" runat="server" ToolTip="Ver características de la técnica" CommandName="Select"><i class="icon-pencil"></i></asp:LinkButton>
                             </ItemTemplate>
-                            <EditItemTemplate>
-                            </EditItemTemplate>
                         </asp:TemplateField>
                     </Columns>
-                    <Columns>
+                    <%--<Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:LinkButton ID="btnEditar" runat="server" ToolTip="Editar técnica" CommandName="Edit"><i class="icon-pencil"></i></asp:LinkButton>
@@ -81,8 +77,8 @@
                                 <asp:LinkButton ID="btnAceptarAgregar" runat="server" ToolTip="Aceptar" CommandName="Update"><i class="icon-ok icon-white"></i></asp:LinkButton>
                             </FooterTemplate>
                         </asp:TemplateField>
-                    </Columns>
-                    <Columns>
+                    </Columns>--%>
+                    <%--<Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:LinkButton ID="btnEliminar" runat="server" CommandName="Delete" OnClientClick="return confirm('¿Está seguro que desea eliminar la técnica seleccionada?');" ToolTip="Eliminar técnica"><i class="icon-trash"></i></asp:LinkButton>
@@ -94,51 +90,52 @@
                                 <asp:LinkButton ID="btnCancelarAgregar" runat="server" ToolTip="Cancelar" OnClick="btnCancelarAgregar_Click"><i class="icon-remove icon-white"></i></asp:LinkButton>
                             </FooterTemplate>
                         </asp:TemplateField>
-                    </Columns>
+                    </Columns>--%>
                 </asp:GridView>
                 <%--<div style="float: right;">
                     <asp:LinkButton ID="btnAgregar" CssClass="btn span2" runat="server" OnClick="btnAgregar_Click">Agregar <i class="icon-plus-sign"></i></asp:LinkButton>
                 </div>--%>
             </asp:Panel>
-            <asp:Panel ID="pnlTecnicaDetalle" runat="server">
-                <div class="divisor">
-                    <div class="page-header">
-                        <h1><small><asp:Label ID="lblNombreTecnicaDetalle" runat="server" Text="Titulo de la Tecnica"></asp:Label></small></h1>
-                    </div>
+            <asp:Panel ID="pnlTecnicaDetalle" runat="server" Visible="False">
+                <div style="float: right;">
+                    <asp:LinkButton ID="btnAtras" runat="server" ToolTip="Regresar" OnClick="btnAtras_Click"><img src="img/atras.png" /></asp:LinkButton>
                 </div>
-                <table class="cienPorciento">
-                    <tr>
-                        <td>
-                            <asp:Label ID="Label1" runat="server" Text="Descripción"></asp:Label></td>
-                        <td>
-                            <asp:Label ID="lblDescripcionDetalle" runat="server" Text="Descripcion de la técnica"></asp:Label> 
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label ID="Label2" runat="server" Text="Pasos"></asp:Label></td>
-                        <td>
-                            <asp:Panel ID="pnlPasos" runat="server">
-                            </asp:Panel>
-                            <%--<asp:LinkButton ID="btnNuevoPaso" runat="server" ToolTip="Crear nuevo paso"><i class="icon-plus"></i></asp:LinkButton>--%>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label ID="Label3" runat="server" Text="Links"></asp:Label></td>
-                        <td>
-                            <asp:Panel ID="PanelLinks" runat="server">
-                            </asp:Panel>
-                            <%--<asp:LinkButton ID="LinkButton1" runat="server" ToolTip="Agregar nuevo link"><i class="icon-plus"></i></asp:LinkButton></td>--%>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                </table>
+                <div class="offset1">
+
+                    <h3>
+                        <asp:Label ID="lblNombreTecnicaDetalle" runat="server" Text="Titulo de la Tecnica"></asp:Label>
+                        <asp:TextBox ID="txtNombreTecnicaDetalle" runat="server" Visible="False" TextMode="MultiLine" Width="600px"></asp:TextBox>
+                        <asp:LinkButton ID="btnChangeTitle" runat="server" CssClass="btn" ToolTip="Cambiar nombre de la técnica" OnClick="btnChangeTitle_Click"><i class="icon-pencil"></i></asp:LinkButton></h3>
+                    <br />
+                </div>
+                <div class="offset1">
+                    <h4>
+                        <asp:Label ID="Label1" runat="server" Text="Descripción"></asp:Label>
+                        <asp:TextBox ID="txtDescripcionDetalle" runat="server" Height="100px" TextMode="MultiLine" Visible="False" Width="500px"></asp:TextBox>
+                        <asp:LinkButton ID="btnChangeDescription" runat="server" CssClass="btn" ToolTip="Cambiar descripción de la técnica" OnClick="btnChangeDescription_Click"><i class="icon-pencil"></i></asp:LinkButton>
+                    </h4>
+
+                    <asp:Label ID="lblDescripcionDetalle" runat="server" Text="Descripcion de la técnica"></asp:Label>
+                    <h4>
+                        <asp:Label ID="Label2" runat="server" Text="Pasos"></asp:Label>
+                        <asp:LinkButton ID="btnNuevoPaso" runat="server" CssClass="btn" ToolTip="Agregar nuevo paso" OnClick="btnNuevoPaso_Click"><i class="icon-plus"></i></asp:LinkButton>
+                    </h4>
+                    <asp:Panel ID="pnlPasos" runat="server">
+                    </asp:Panel>
+                    <asp:Panel ID="pnlNuevoPaso" runat="server">
+                    </asp:Panel>
+                    <h4>
+                        <asp:Label ID="Label3" runat="server" Text="Links"></asp:Label>
+                        <asp:LinkButton ID="btnNuevoLink" runat="server" CssClass="btn" ToolTip="Agregar nuevo link" OnClick="btnNuevoLink_Click"><i class="icon-plus"></i></asp:LinkButton>
+                    </h4>
+                    <asp:Panel ID="pnlLinks" runat="server">
+                    </asp:Panel>
+                    <asp:Panel ID="pnlNuevoLink" runat="server">
+                    </asp:Panel>
+                </div>
+                <div>
+                    <asp:LinkButton ID="lblAceptar" runat="server" CssClass="btn" Style="float: right;" ToolTip="Agregar nuevo link" OnClick="lblAceptar_Click">Aceptar <i class="icon-ok"></i></asp:LinkButton>
+                </div>
             </asp:Panel>
         </div>
     </form>

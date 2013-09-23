@@ -38,10 +38,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=4.1.7.725, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Downloads\Software\AjaxControlToolkit.Binary.NET40\AjaxControlToolkit.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -63,10 +59,11 @@
   <ItemGroup>
     <Content Include="cocreacion.html" />
     <Content Include="cocreacion_ws.asmx" />
-    <Content Include="formWithASP.aspx" />
+    <Content Include="img\atras.png" />
     <Content Include="img\bnr.png" />
     <Content Include="js\jquery-2.0.3.js" />
     <Content Include="js\script.js" />
+    <Content Include="ListaTecnicas.aspx" />
     <Content Include="Tecnicas.aspx" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\impress.css" />
@@ -83,20 +80,18 @@
     <Content Include="img\udem.png" />
     <Content Include="js\impress.js" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
-    <Content Include="webservice.htc" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cocreacion_ws.asmx.cs">
       <DependentUpon>cocreacion_ws.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="formWithASP.aspx.cs">
-      <DependentUpon>formWithASP.aspx</DependentUpon>
+    <Compile Include="ListaTecnicas.aspx.cs">
+      <DependentUpon>ListaTecnicas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="formWithASP.aspx.designer.cs">
-      <DependentUpon>formWithASP.aspx</DependentUpon>
+    <Compile Include="ListaTecnicas.aspx.designer.cs">
+      <DependentUpon>ListaTecnicas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tecnicas.aspx.cs">
       <DependentUpon>Tecnicas.aspx</DependentUpon>
@@ -106,13 +101,6 @@
       <DependentUpon>Tecnicas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\webfonts\270D71_0_0.eot" />

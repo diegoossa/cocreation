@@ -55,9 +55,9 @@ namespace DataAccess
             return selectQuery("select * from Tecnica");
         }
 
-        public DataTable getTecnicaCaracteristicaCriterio()
+        public DataTable getTecnicaCaracteristicaCriterio_Importancia()
         {
-            return selectQuery("select * from Tecnica_Caracteristica_Criterio");
+            return selectQuery("select tcc.id_caracteristica, tcc.id_criterio, tcc.id_tecnica, c.importancia from Tecnica_Caracteristica_Criterio tcc inner join Caracteristica c on tcc.id_caracteristica = c.id_caracteristica");
         }
 
         public DataTable getTecnicaById(string id)
@@ -65,9 +65,7 @@ namespace DataAccess
             return selectQuery("select * from Tecnica where id_tecnica = " + id);
         }
 
-
-
-        public void editTecnica()
+        public void editTecnica(string id)
         {
 
         }
@@ -84,11 +82,16 @@ namespace DataAccess
 
         #endregion
 
-        #region Caracteristicas
+        #region Pasos
 
-        public DataTable getCaracteristicas()
+        public DataTable getPasosByIdTecnica(string id)
         {
-            return selectQuery("select * from Caracteristica");
+            return selectQuery("select p.id_paso, p.id_tecnica, p.paso, c.criterio, c.id_criterio  from Paso p inner join Criterio c on p.id_criterio_rol = c.id_criterio where p.id_tecnica = " + id);
+        }
+
+        public DataTable getLinksByIdTecnica(string id)
+        {
+            return selectQuery("select * from Link where id_tecnica = " + id);
         }
 
         public void editCaracteristicas()

@@ -41,7 +41,7 @@ namespace CocreacionWeb
             DataTable dt = new DataTable();
             dt = data.getDatosFormulario();
             string jsonData = GetJson(dt);
-            return jsonData;
+            return "{ \"criterios\":" + jsonData + "}";
         }
 
         public string GetJson(DataTable dt)
@@ -59,7 +59,7 @@ namespace CocreacionWeb
                 }
                 rows.Add(row);
             }
-            return "{ \"criterios\":" + serializer.Serialize(rows) + "}";
+            return serializer.Serialize(rows);
         }
 
         [WebMethod]
@@ -77,7 +77,7 @@ namespace CocreacionWeb
                 dr["rating"] = "0";
             }
 
-            DataTable dtReferencia = data.getTecnicaCaracteristicaCriterio();
+            DataTable dtReferencia = data.getTecnicaCaracteristicaCriterio_Importancia();
 
             string filtro;
             DataRow[] results;
@@ -92,11 +92,12 @@ namespace CocreacionWeb
                 foreach (DataRow result in results)
                 {
                     string idTecnica = result[0].ToString();
+                    int importancia = int.Parse(result[3].ToString());
                     foreach (DataRow dr in dtRating.Rows)
                     {
                         if (dr[0].ToString() == idTecnica)
                         {
-                            dr[2] = (int.Parse(dr[2].ToString()) + 1).ToString();
+                            dr[2] = (int.Parse(dr[2].ToString()) + importancia).ToString();
                         }
                     }
                 }
@@ -110,11 +111,12 @@ namespace CocreacionWeb
             foreach (DataRow result in results)
             {
                 string idTecnica = result[0].ToString();
+                int importancia = int.Parse(result[3].ToString());
                 foreach (DataRow dr in dtRating.Rows)
                 {
                     if (dr[0].ToString() == idTecnica)
                     {
-                        dr[2] = (int.Parse(dr[2].ToString()) + 1).ToString();
+                        dr[2] = (int.Parse(dr[2].ToString()) + importancia).ToString();
                     }
                 }
             }
@@ -131,11 +133,12 @@ namespace CocreacionWeb
                 foreach (DataRow result in results)
                 {
                     string idTecnica = result[0].ToString();
+                    int importancia = int.Parse(result[3].ToString());
                     foreach (DataRow dr in dtRating.Rows)
                     {
                         if (dr[0].ToString() == idTecnica)
                         {
-                            dr[2] = (int.Parse(dr[2].ToString()) + 1).ToString();
+                            dr[2] = (int.Parse(dr[2].ToString()) + importancia).ToString();
                         }
                     }
                 }
@@ -149,11 +152,12 @@ namespace CocreacionWeb
             foreach (DataRow result in results)
             {
                 string idTecnica = result[0].ToString();
+                int importancia = int.Parse(result[3].ToString());
                 foreach (DataRow dr in dtRating.Rows)
                 {
                     if (dr[0].ToString() == idTecnica)
                     {
-                        dr[2] = (int.Parse(dr[2].ToString()) + 1).ToString();
+                        dr[2] = (int.Parse(dr[2].ToString()) + importancia).ToString();
                     }
                 }
             }
@@ -166,11 +170,12 @@ namespace CocreacionWeb
             foreach (DataRow result in results)
             {
                 string idTecnica = result[0].ToString();
+                int importancia = int.Parse(result[3].ToString());
                 foreach (DataRow dr in dtRating.Rows)
                 {
                     if (dr[0].ToString() == idTecnica)
                     {
-                        dr[2] = (int.Parse(dr[2].ToString()) + 1).ToString();
+                        dr[2] = (int.Parse(dr[2].ToString()) + importancia).ToString();
                     }
                 }
             }
@@ -185,11 +190,12 @@ namespace CocreacionWeb
                 foreach (DataRow result in results)
                 {
                     string idTecnica = result[0].ToString();
+                    int importancia = int.Parse(result[3].ToString());
                     foreach (DataRow dr in dtRating.Rows)
                     {
                         if (dr[0].ToString() == idTecnica)
                         {
-                            dr[2] = (int.Parse(dr[2].ToString()) + 1).ToString();
+                            dr[2] = (int.Parse(dr[2].ToString()) + importancia).ToString();
                         }
                     }
                 }
@@ -207,11 +213,12 @@ namespace CocreacionWeb
                 foreach (DataRow result in results)
                 {
                     string idTecnica = result[0].ToString();
+                    int importancia = int.Parse(result[3].ToString());
                     foreach (DataRow dr in dtRating.Rows)
                     {
                         if (dr[0].ToString() == idTecnica)
                         {
-                            dr[2] = (int.Parse(dr[2].ToString()) + 1).ToString();
+                            dr[2] = (int.Parse(dr[2].ToString()) + importancia).ToString();
                         }
                     }
                 }
@@ -225,11 +232,12 @@ namespace CocreacionWeb
             foreach (DataRow result in results)
             {
                 string idTecnica = result[0].ToString();
+                int importancia = int.Parse(result[3].ToString());
                 foreach (DataRow dr in dtRating.Rows)
                 {
                     if (dr[0].ToString() == idTecnica)
                     {
-                        dr[2] = (int.Parse(dr[2].ToString()) + 1).ToString();
+                        dr[2] = (int.Parse(dr[2].ToString()) + importancia).ToString();
                     }
                 }
             }
@@ -242,11 +250,12 @@ namespace CocreacionWeb
             foreach (DataRow result in results)
             {
                 string idTecnica = result[0].ToString();
+                int importancia = int.Parse(result[3].ToString());
                 foreach (DataRow dr in dtRating.Rows)
                 {
                     if (dr[0].ToString() == idTecnica)
                     {
-                        dr[2] = (int.Parse(dr[2].ToString()) + 1).ToString();
+                        dr[2] = (int.Parse(dr[2].ToString()) + importancia).ToString();
                     }
                 }
             }
@@ -258,9 +267,8 @@ namespace CocreacionWeb
             DataTable tecnicasElegidas = new DataTable();
             tecnicasElegidas = data.selectQuery("select * from  Tecnica where id_tecnica = " + dtRating.Rows[0][0] + " or id_tecnica = " + dtRating.Rows[1][0] + " or  id_tecnica = " + dtRating.Rows[2][0]);
 
-            return GetJson(tecnicasElegidas);
-
-            //return (problema + "\n" + fase + "\n" + noParticipantes + "\n" + conocimiento + "\n" + ubicacion + "\n" + participantes + "\n" + duracion + "\n" + costo + "\n" + escalabilidad);
+            return "{\"tecnicas\":" + GetJson(tecnicasElegidas) + ",\"resultados\":" + GetJson(dtRating) + "}";
+            
         }
 
         protected string[] fuzzyNoParticipantes(int desFuzzy)

@@ -142,45 +142,29 @@ function rateTecnica() {
 
 function fillTecnicas() {
     var json = JSON.parse(tecnicas);
-
     var ganadora = document.getElementById("ganadora");
     var segunda = document.getElementById("segunda");
     var tercera = document.getElementById("tercera");
 
     var espacio = document.createElement('br');
     var titulo = document.createElement('h2');
-    titulo.innerHTML = json.criterios[0].nombre_tecnica;
+    titulo.innerHTML = json.tecnicas[0].nombre_tecnica;
     var descripcion = document.createElement('p');
-    descripcion.innerHTML = json.criterios[0].descripcion;
+    descripcion.innerHTML = json.tecnicas[0].descripcion;
     descripcion.className = "descripcion";
-
     ganadora.appendChild(titulo);
     ganadora.appendChild(descripcion);
     ganadora.appendChild(espacio);
 
     var titulo2 = document.createElement('h2');
-    titulo2.innerHTML = json.criterios[1].nombre_tecnica;
+    titulo2.innerHTML = json.tecnicas[1].nombre_tecnica;
     titulo2.className = "descripcion";
-    //var descripcion2 = document.createElement('p');
-    //descripcion2.innerHTML = json.criterios[1].descripcion;
-    //descripcion2.className = "descripcion";
-    //var espacio2 = document.createElement('br');
-
     segunda.appendChild(titulo2);
-    //segunda.appendChild(descripcion2);
-    //segunda.appendChild(espacio2);
 
     var titulo3 = document.createElement('h2');
-    titulo3.innerHTML = json.criterios[2].nombre_tecnica;
+    titulo3.innerHTML = json.tecnicas[2].nombre_tecnica;
     titulo3.className = "descripcion";
-    //var descripcion3 = document.createElement('p');
-    //descripcion3.innerHTML = json.criterios[2].descripcion;
-    //descripcion3.className = "content";
-    //var espacio3 = document.createElement('br');
-
     tercera.appendChild(titulo3);
-    //tercera.appendChild(descripcion3);
-    //tercera.appendChild(espacio3);
 }
 
 function createRadio(name, value, id) {
