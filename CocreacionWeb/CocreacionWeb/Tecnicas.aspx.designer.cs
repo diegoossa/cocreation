@@ -31,13 +31,13 @@ namespace CocreacionWeb {
         protected global::System.Web.UI.WebControls.Panel pnlTablaTecnicas;
         
         /// <summary>
-        /// Control tableTecnicas.
+        /// Control gvTecnicas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView tableTecnicas;
+        protected global::System.Web.UI.WebControls.GridView gvTecnicas;
         
         /// <summary>
         /// Control pnlTecnicaDetalle.
@@ -148,13 +148,13 @@ namespace CocreacionWeb {
         protected global::System.Web.UI.WebControls.Panel pnlPasos;
         
         /// <summary>
-        /// Control pnlNuevoPaso.
+        /// Control gvPasos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlNuevoPaso;
+        protected global::System.Web.UI.WebControls.GridView gvPasos;
         
         /// <summary>
         /// Control Label3.
@@ -184,13 +184,13 @@ namespace CocreacionWeb {
         protected global::System.Web.UI.WebControls.Panel pnlLinks;
         
         /// <summary>
-        /// Control pnlNuevoLink.
+        /// Control gvLinks.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlNuevoLink;
+        protected global::System.Web.UI.WebControls.GridView gvLinks;
         
         /// <summary>
         /// Control lblAceptar.
