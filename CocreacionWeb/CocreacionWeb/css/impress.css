@@ -70,6 +70,20 @@ label {
     float: right;
 }
 
+.help {
+    font-size:medium;
+    padding:25px;
+    background-color: #edd2ff;
+    width: 250px;
+    min-height: 20px;
+    border-radius: 20px;
+    position: relative;    
+    top: 150px;
+    right: -800px;
+    text-align:center;
+    -webkit-animation: bounce 8s infinite;
+}
+
 .error {
     float: right;
     width: 200px;
@@ -87,7 +101,7 @@ label {
 
 .otras_tecnicas {
     opacity: 0.5;
-    padding: 5px 20px 5px 100px;
+    padding: 10px 10px 10px 10px;
 }
 
 .descripcion {
@@ -850,4 +864,34 @@ a {
     -webkit-animation-name: shake;
     -moz-animation-name: shake;
     animation-name: shake;
+}
+
+@-webkit-keyframes bounce {
+	0%, 2%, 5%, 8%, 10% {-webkit-transform: translateY(0);}
+	4% {-webkit-transform: translateY(-30px);}
+	6% {-webkit-transform: translateY(-15px);}
+}
+
+@-moz-keyframes bounce {
+	0%, 2%, 5%, 8%, 10% {-moz-transform: translateY(0);}
+	4% {-moz-transform: translateY(-30px);}
+	6% {-moz-transform: translateY(-15px);}
+}
+
+@-o-keyframes bounce {
+	0%, 2%, 5%, 8%, 10% {-o-transform: translateY(0);}
+	4% {-o-transform: translateY(-30px);}
+	6% {-o-transform: translateY(-15px);}
+}
+@keyframes bounce {
+	0%, 2%, 5%, 8%, 10% {transform: translateY(0);}
+	4% {transform: translateY(-30px);}
+	6% {transform: translateY(-15px);}
+}
+
+.animated.bounce {
+	-webkit-animation-name: bounce;
+	-moz-animation-name: bounce;
+	-o-animation-name: bounce;
+	animation-name: bounce;
 }

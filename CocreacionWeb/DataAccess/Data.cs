@@ -36,7 +36,6 @@ namespace DataAccess
 
         public DataTable selectQuery(string q)
         {
-            //SqlConnection con = new SqlConnection(strCnx);
             DataTable dt = new DataTable();
             con.Open();
             SqlDataAdapter da = new SqlDataAdapter(q, con);
@@ -65,21 +64,28 @@ namespace DataAccess
             return selectQuery("select * from Tecnica where id_tecnica = " + id);
         }
 
-        public void editTecnica(string id)
+        public void editTecnica(string id, string campo, string valor)
         {
-
+            executeQuery("UPDATE tecnica SET " + campo + " = '" + valor + "' WHERE id_tecnica = " + id);
         }
 
         public void deleteTecnica(string id)
         {
-
+            executeQuery("DELETE from Tecnica where id_tecnica = " + id);
+            executeQuery("DELETE from Tecnica_Caracteristica_Criterio where id_tecnica = " + id);
+            executeQuery("DELETE from Paso where id_tecnica = " + id);
+            executeQuery("DELETE from Link where id_tecnica = " + id);
         }
 
-        public void createTecnica()
+        public void createTecnica(string nombre, string descripcion)
         {
-
+            executeQuery("INSERT INTO Tecnica (nombre_tecnica, descripcion) VALUES ('" + nombre + "','" + descripcion + "')");
         }
 
+        public string getLastId() {
+            DataTable dt = selectQuery("SELECT MAX(id_tecnica) FROM Tecnica");
+            return dt.Rows[0][0].ToString();
+        }
         #endregion
 
         #region Pasos
@@ -89,24 +95,48 @@ namespace DataAccess
             return selectQuery("select p.id_paso, p.id_tecnica, p.paso, c.criterio, c.id_criterio  from Paso p inner join Criterio c on p.id_criterio_rol = c.id_criterio where p.id_tecnica = " + id);
         }
 
+        public void editPaso(string idPaso, string idTecnica, string paso, string idCriterio)
+        {
+            executeQuery("UPDATE Paso SET paso = '" + paso + "', id_criterio_rol = '" + idCriterio + "' WHERE id_paso = " + idPaso);
+        }
+
+        public void createPaso(string paso, string idCriterio, string idTecnica)
+        {
+            executeQuery("INSERT INTO Paso (id_tecnica, paso, id_criterio_rol) VALUES ('" + idTecnica + "','" + paso + "','" + idCriterio + "')");
+        }
+
+        public void deletePaso(string idPaso)
+        {
+            executeQuery("DELETE from Paso where id_paso = " + idPaso);
+        }
+
+        public DataTable getRoles()
+        {
+            return selectQuery("select criterio, id_criterio from Criterio where id_criterio between 21 and 33");
+        }
+
+        #endregion
+
+        #region Links
+
         public DataTable getLinksByIdTecnica(string id)
         {
             return selectQuery("select * from Link where id_tecnica = " + id);
         }
 
-        public void editCaracteristicas()
+        public void editLink(string idLink, string idTecnica, string link)
         {
-
+            executeQuery("UPDATE Link SET link = '" + link + "' WHERE id_link = " + idLink);
         }
 
-        public void deleteCaracteristicas(string id)
+        public void createLink(string link, string idTecnica)
         {
-
+            executeQuery("INSERT INTO Link (id_tecnica, link) VALUES ('" + idTecnica + "','" + link + "')");
         }
 
-        public void createCaracteristicas()
+        public void deleteLink(string idLink)
         {
-
+            executeQuery("DELETE from Link where id_link = " + idLink);
         }
 
         #endregion
@@ -120,8 +150,43 @@ namespace DataAccess
 
         #endregion
 
-        #region ---
+        #region Caracteristicas
 
+        public DataTable getCaracteristicasByTecnicaId(string idTecnica)
+        {
+            return selectQuery("select tcc.id_relacion, ca.id_caracteristica, ca.caracteristica, cr.grupo, cr.id_criterio, cr.criterio from Tecnica_Caracteristica_Criterio tcc inner join Caracteristica ca on tcc.id_caracteristica = ca.id_caracteristica inner join Criterio cr on tcc.id_criterio = cr.id_criterio where tcc.id_tecnica = " + idTecnica);
+        }
+
+        public void editCaracteristicaTecnica(string idRelacion, string idCaracteristica, string idCriterio)
+        {
+            executeQuery("UPDATE Tecnica_Caracteristica_Criterio SET id_caracteristica = '" + idCaracteristica + "', id_criterio = '" + idCriterio + "' where id_relacion = " + idRelacion);
+        }
+
+        public void deleteCaracteristicasTecnica(string idRelacion)
+        {
+            executeQuery("DELETE from Tecnica_Caracteristica_Criterio where id_relacion = " + idRelacion);
+        }
+
+        public void createCaracteristicasTecnica(string idTecnica, string idCaracteristica, string idCriterio)
+        {
+            executeQuery("INSERT INTO Tecnica_Caracteristica_Criterio (id_tecnica, id_caracteristica, id_criterio) VALUES ('" + idTecnica + "','" + idCaracteristica + "', '" + idCriterio + "')");
+        }
+
+        public DataTable getCaracteristicas()
+        {
+            return selectQuery("SELECT id_caracteristica, caracteristica FROM Caracteristica");
+        }
+
+        public DataTable getCriterio(string idCaracteristica)
+        {
+            return selectQuery("SELECT id_criterio, criterio FROM Criterio where grupo = (select grupo from Caracteristica where id_caracteristica = " + idCaracteristica + ")");
+        }
+
+        public DataTable getCriterio()
+        {
+            return selectQuery("SELECT id_criterio, criterio FROM Criterio");
+        }
+        
         #endregion
     }
 }

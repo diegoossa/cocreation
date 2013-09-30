@@ -10,6 +10,8 @@ var escalabilidad;
 var response;// = '{ "criterios":[{"id_criterio":1,"criterio":"Temprana","grupo":1,"valor_inicial":null,"valor_final":null},{"id_criterio":2,"criterio":"Intermedia","grupo":1,"valor_inicial":null,"valor_final":null},{"id_criterio":3,"criterio":"Avanzada","grupo":1,"valor_inicial":null,"valor_final":null},{"id_criterio":4,"criterio":"Grupo Pequeño","grupo":2,"valor_inicial":null,"valor_final":null},{"id_criterio":5,"criterio":"Grupo Mediano","grupo":2,"valor_inicial":null,"valor_final":null},{"id_criterio":6,"criterio":"Grupo Grande","grupo":2,"valor_inicial":null,"valor_final":null},{"id_criterio":7,"criterio":"Basico","grupo":3,"valor_inicial":null,"valor_final":null},{"id_criterio":8,"criterio":"Medio","grupo":3,"valor_inicial":null,"valor_final":null},{"id_criterio":9,"criterio":"Alto","grupo":3,"valor_inicial":null,"valor_final":null},{"id_criterio":10,"criterio":"Avanzado","grupo":3,"valor_inicial":null,"valor_final":null},{"id_criterio":11,"criterio":"Presencial","grupo":4,"valor_inicial":null,"valor_final":null},{"id_criterio":12,"criterio":"Virtual","grupo":4,"valor_inicial":null,"valor_final":null},{"id_criterio":13,"criterio":"Muy Bajo","grupo":5,"valor_inicial":null,"valor_final":null},{"id_criterio":14,"criterio":"Bajo","grupo":5,"valor_inicial":null,"valor_final":null},{"id_criterio":15,"criterio":"Medio","grupo":5,"valor_inicial":null,"valor_final":null},{"id_criterio":16,"criterio":"Alto","grupo":5,"valor_inicial":null,"valor_final":null},{"id_criterio":17,"criterio":"Muy Alto","grupo":5,"valor_inicial":null,"valor_final":null},{"id_criterio":18,"criterio":"Bajo","grupo":6,"valor_inicial":null,"valor_final":null},{"id_criterio":19,"criterio":"Medio","grupo":6,"valor_inicial":null,"valor_final":null},{"id_criterio":20,"criterio":"Alto","grupo":6,"valor_inicial":null,"valor_final":null},{"id_criterio":21,"criterio":"Gerente","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":22,"criterio":"Empleados","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":23,"criterio":"Moderadores","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":24,"criterio":"Usuarios finales","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":25,"criterio":"Miembros de un grupo","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":26,"criterio":"Gerente","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":27,"criterio":"Empleados","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":28,"criterio":"Moderadores","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":29,"criterio":"Usuarios finales","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":30,"criterio":"Miembros de un grupo","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":31,"criterio":"Expertos del tema de discución","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":32,"criterio":"Secretario","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":33,"criterio":"Facilitador o coordinador de la técnica","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":34,"criterio":"Redes y conexiones entre participantes","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":35,"criterio":"Generar conocimiento","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":36,"criterio":"Generar aprendizaje","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":37,"criterio":"Generar productividad","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":38,"criterio":"Reducción de errores","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":39,"criterio":"Crear comunidades prácticas","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":40,"criterio":"Generar estrategias","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":41,"criterio":"Generar entretenimiento","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":42,"criterio":"Visualizar administración de conocimiento","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":43,"criterio":"Identificar conocimiento de los participantes","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":44,"criterio":"Generar mejores prácticas","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":45,"criterio":"Identificar problemas","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":46,"criterio":"Identificar situación actual","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":47,"criterio":"Bajo","grupo":9,"valor_inicial":null,"valor_final":null},{"id_criterio":48,"criterio":"Medio","grupo":9,"valor_inicial":null,"valor_final":null},{"id_criterio":49,"criterio":"Alto","grupo":9,"valor_inicial":null,"valor_final":null}]}';
 var tecnicas;
 
+var topTres = new Array();
+
 
 function fillForm() {
 
@@ -145,10 +147,20 @@ function fillTecnicas() {
     var ganadora = document.getElementById("ganadora");
     var segunda = document.getElementById("segunda");
     var tercera = document.getElementById("tercera");
+    var link = document.getElementById("link");
+
+    //topTres[0] = json.tecnicas[0].id_tecnica;
+    //topTres[1] = json.tecnicas[1].id_tecnica;
+    //topTres[2] = json.tecnicas[2].id_tecnica;
+
+    var url = document.createElement('a');
+    var h2 = document.createElement('h3');
+    h2.innerHTML = "Ver técnicas";
+    url.href = "ListaTecnicas.aspx?tecnica1=" + json.tecnicas[0].id_tecnica + "&tecnica2=" + json.tecnicas[1].id_tecnica + "&tecnica3=" + json.tecnicas[2].id_tecnica;
 
     var espacio = document.createElement('br');
     var titulo = document.createElement('h2');
-    titulo.innerHTML = json.tecnicas[0].nombre_tecnica;
+    titulo.innerHTML = json.tecnicas[0].nombre_tecnica;    
     var descripcion = document.createElement('p');
     descripcion.innerHTML = json.tecnicas[0].descripcion;
     descripcion.className = "descripcion";
@@ -165,6 +177,11 @@ function fillTecnicas() {
     titulo3.innerHTML = json.tecnicas[2].nombre_tecnica;
     titulo3.className = "descripcion";
     tercera.appendChild(titulo3);
+
+    url.appendChild(h2);
+    link.appendChild(url);
+
+
 }
 
 function createRadio(name, value, id) {
