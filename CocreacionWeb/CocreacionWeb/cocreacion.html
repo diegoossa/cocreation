@@ -339,9 +339,19 @@
                 <!--<h2>Titulo</h2>-->
             </div>
             <div id="link">
+                <a class="derecha" href="TodasLasTecnicas.aspx">Mostrar Todas las técnicas</a>
+                <br />
+                <a class="derecha" href="javascript:impress().next()" onclick="fillMatriz()">Mostrar matriz de ranking</a>
             </div>
         </div>
 
+        <div class="step" data-x="0" data-y="0" data-z="15000" data-rotate-x="0">
+            <h1 style="color: #660;">Matriz de Ranking:</h1>
+            <br />
+            <div id="tablaMatriz" class="table">
+            </div>
+        </div>
+    </div>
     <script src="js/script.js"></script>
     <script src="js/impress.js"></script>
     <script>impress().init();</script>

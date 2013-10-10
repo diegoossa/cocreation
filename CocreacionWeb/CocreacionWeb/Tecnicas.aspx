@@ -18,6 +18,7 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li class="active"><a>Administrar Técnicas</a></li>
+                            <li><a href="TodasLasTecnicas.aspx">Lista Técnicas</a></li>
                         </ul>
                     </div>
                 </div>

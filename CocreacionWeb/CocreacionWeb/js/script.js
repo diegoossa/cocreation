@@ -10,9 +10,6 @@ var escalabilidad;
 var response;// = '{ "criterios":[{"id_criterio":1,"criterio":"Temprana","grupo":1,"valor_inicial":null,"valor_final":null},{"id_criterio":2,"criterio":"Intermedia","grupo":1,"valor_inicial":null,"valor_final":null},{"id_criterio":3,"criterio":"Avanzada","grupo":1,"valor_inicial":null,"valor_final":null},{"id_criterio":4,"criterio":"Grupo Pequeño","grupo":2,"valor_inicial":null,"valor_final":null},{"id_criterio":5,"criterio":"Grupo Mediano","grupo":2,"valor_inicial":null,"valor_final":null},{"id_criterio":6,"criterio":"Grupo Grande","grupo":2,"valor_inicial":null,"valor_final":null},{"id_criterio":7,"criterio":"Basico","grupo":3,"valor_inicial":null,"valor_final":null},{"id_criterio":8,"criterio":"Medio","grupo":3,"valor_inicial":null,"valor_final":null},{"id_criterio":9,"criterio":"Alto","grupo":3,"valor_inicial":null,"valor_final":null},{"id_criterio":10,"criterio":"Avanzado","grupo":3,"valor_inicial":null,"valor_final":null},{"id_criterio":11,"criterio":"Presencial","grupo":4,"valor_inicial":null,"valor_final":null},{"id_criterio":12,"criterio":"Virtual","grupo":4,"valor_inicial":null,"valor_final":null},{"id_criterio":13,"criterio":"Muy Bajo","grupo":5,"valor_inicial":null,"valor_final":null},{"id_criterio":14,"criterio":"Bajo","grupo":5,"valor_inicial":null,"valor_final":null},{"id_criterio":15,"criterio":"Medio","grupo":5,"valor_inicial":null,"valor_final":null},{"id_criterio":16,"criterio":"Alto","grupo":5,"valor_inicial":null,"valor_final":null},{"id_criterio":17,"criterio":"Muy Alto","grupo":5,"valor_inicial":null,"valor_final":null},{"id_criterio":18,"criterio":"Bajo","grupo":6,"valor_inicial":null,"valor_final":null},{"id_criterio":19,"criterio":"Medio","grupo":6,"valor_inicial":null,"valor_final":null},{"id_criterio":20,"criterio":"Alto","grupo":6,"valor_inicial":null,"valor_final":null},{"id_criterio":21,"criterio":"Gerente","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":22,"criterio":"Empleados","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":23,"criterio":"Moderadores","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":24,"criterio":"Usuarios finales","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":25,"criterio":"Miembros de un grupo","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":26,"criterio":"Gerente","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":27,"criterio":"Empleados","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":28,"criterio":"Moderadores","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":29,"criterio":"Usuarios finales","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":30,"criterio":"Miembros de un grupo","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":31,"criterio":"Expertos del tema de discución","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":32,"criterio":"Secretario","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":33,"criterio":"Facilitador o coordinador de la técnica","grupo":7,"valor_inicial":null,"valor_final":null},{"id_criterio":34,"criterio":"Redes y conexiones entre participantes","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":35,"criterio":"Generar conocimiento","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":36,"criterio":"Generar aprendizaje","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":37,"criterio":"Generar productividad","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":38,"criterio":"Reducción de errores","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":39,"criterio":"Crear comunidades prácticas","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":40,"criterio":"Generar estrategias","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":41,"criterio":"Generar entretenimiento","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":42,"criterio":"Visualizar administración de conocimiento","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":43,"criterio":"Identificar conocimiento de los participantes","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":44,"criterio":"Generar mejores prácticas","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":45,"criterio":"Identificar problemas","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":46,"criterio":"Identificar situación actual","grupo":8,"valor_inicial":null,"valor_final":null},{"id_criterio":47,"criterio":"Bajo","grupo":9,"valor_inicial":null,"valor_final":null},{"id_criterio":48,"criterio":"Medio","grupo":9,"valor_inicial":null,"valor_final":null},{"id_criterio":49,"criterio":"Alto","grupo":9,"valor_inicial":null,"valor_final":null}]}';
 var tecnicas;
 
-var topTres = new Array();
-
-
 function fillForm() {
 
     var json = JSON.parse(response);
@@ -149,10 +146,6 @@ function fillTecnicas() {
     var tercera = document.getElementById("tercera");
     var link = document.getElementById("link");
 
-    //topTres[0] = json.tecnicas[0].id_tecnica;
-    //topTres[1] = json.tecnicas[1].id_tecnica;
-    //topTres[2] = json.tecnicas[2].id_tecnica;
-
     var url = document.createElement('a');
     var h2 = document.createElement('h3');
     h2.innerHTML = "Ver técnicas";
@@ -160,7 +153,7 @@ function fillTecnicas() {
 
     var espacio = document.createElement('br');
     var titulo = document.createElement('h2');
-    titulo.innerHTML = json.tecnicas[0].nombre_tecnica;    
+    titulo.innerHTML = json.tecnicas[0].nombre_tecnica;
     var descripcion = document.createElement('p');
     descripcion.innerHTML = json.tecnicas[0].descripcion;
     descripcion.className = "descripcion";
@@ -180,8 +173,13 @@ function fillTecnicas() {
 
     url.appendChild(h2);
     link.appendChild(url);
+}
 
-
+function fillMatriz() {
+    var json = JSON.parse(tecnicas);
+    var table = $('#tablaMatriz');
+    var jsonTable = ConvertJsonToTable(json.resultados, 'tableM', null, 'Table');
+    table.html(jsonTable);
 }
 
 function createRadio(name, value, id) {
@@ -325,6 +323,130 @@ function check_escalabilidad() {
             escalabilidad = check_escalabilidad[i].value;
         }
     }
+}
+
+
+String.prototype.format = function () {
+    var args = arguments;
+
+    return this.replace(/{(\d+)}/g, function (match, number) {
+        return typeof args[number] != 'undefined' ? args[number] :
+                                                    '{' + number + '}';
+    });
+};
+
+function ConvertJsonToTable(parsedJson, tableId, tableClassName, linkText) {
+    //Patterns for links and NULL value
+    var italic = '<i>{0}</i>';
+    var link = linkText ? '<a href="{0}">' + linkText + '</a>' :
+                          '<a href="{0}">{0}</a>';
+
+    //Pattern for table                          
+    var idMarkup = tableId ? ' id="' + tableId + '"' :
+                             '';
+
+    var classMarkup = tableClassName ? ' class="' + tableClassName + '"' :
+                                       '';
+
+    var tbl = '<table border="1" cellpadding="1" cellspacing="1"' + idMarkup + classMarkup + '>{0}{1}</table>';
+
+    //Patterns for table content
+    var th = '<thead>{0}</thead>';
+    var tb = '<tbody>{0}</tbody>';
+    var tr = '<tr>{0}</tr>';
+    var thRow = '<th>{0}</th>';
+    var tdRow = '<td>{0}</td>';
+    var thCon = '';
+    var tbCon = '';
+    var trCon = '';
+
+    if (parsedJson) {
+        var isStringArray = typeof (parsedJson[0]) == 'string';
+        var headers;
+
+        // Create table headers from JSON data
+        // If JSON data is a simple string array we create a single table header
+        if (isStringArray)
+            thCon += thRow.format('value');
+        else {
+            // If JSON data is an object array, headers are automatically computed
+            if (typeof (parsedJson[0]) == 'object') {
+                headers = array_keys(parsedJson[0]);
+
+                for (i = 0; i < headers.length; i++)
+                    thCon += thRow.format(headers[i]);
+            }
+        }
+        th = th.format(tr.format(thCon));
+
+        // Create table rows from Json data
+        if (isStringArray) {
+            for (i = 0; i < parsedJson.length; i++) {
+                tbCon += tdRow.format(parsedJson[i]);
+                trCon += tr.format(tbCon);
+                tbCon = '';
+            }
+        }
+        else {
+            if (headers) {
+                var urlRegExp = new RegExp(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig);
+                var javascriptRegExp = new RegExp(/(^javascript:[\s\S]*;$)/ig);
+
+                for (i = 0; i < parsedJson.length; i++) {
+                    for (j = 0; j < headers.length; j++) {
+                        var value = parsedJson[i][headers[j]];
+                        var isUrl = urlRegExp.test(value) || javascriptRegExp.test(value);
+
+                        if (isUrl)   // If value is URL we auto-create a link
+                            tbCon += tdRow.format(link.format(value));
+                        else {
+                            if (value) {
+                                if (typeof (value) == 'object') {
+                                    //for supporting nested tables
+                                    tbCon += tdRow.format(ConvertJsonToTable(eval(value.data), value.tableId, value.tableClassName, value.linkText));
+                                } else {
+                                    tbCon += tdRow.format(value);
+                                }
+
+                            } else {    // If value == null we format it like PhpMyAdmin NULL values
+                                tbCon += tdRow.format(italic.format(value).toUpperCase());
+                            }
+                        }
+                    }
+                    trCon += tr.format(tbCon);
+                    tbCon = '';
+                }
+            }
+        }
+        tb = tb.format(trCon);
+        tbl = tbl.format(th, tb);
+
+        return tbl;
+    }
+    return null;
+}
+
+function array_keys(input, search_value, argStrict) {
+    var search = typeof search_value !== 'undefined', tmp_arr = [], strict = !!argStrict, include = true, key = '';
+
+    if (input && typeof input === 'object' && input.change_key_case) { // Duck-type check for our own array()-created PHPJS_Array
+        return input.keys(search_value, argStrict);
+    }
+
+    for (key in input) {
+        if (input.hasOwnProperty(key)) {
+            include = true;
+            if (search) {
+                if (strict && input[key] !== search_value)
+                    include = false;
+                else if (input[key] != search_value)
+                    include = false;
+            }
+            if (include)
+                tmp_arr[tmp_arr.length] = key;
+        }
+    }
+    return tmp_arr;
 }
 
 

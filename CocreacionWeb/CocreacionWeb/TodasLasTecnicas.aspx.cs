@@ -1,27 +1,29 @@
-﻿using System;
+﻿using DataAccess;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DataAccess;
-using System.Configuration;
-using System.Data;
 
 namespace CocreacionWeb
 {
-    public partial class ListaTecnicas : System.Web.UI.Page
+    public partial class TodasLasTecnicas : System.Web.UI.Page
     {
         static string strCnx = ConfigurationManager.AppSettings["con"];
         Data data = new Data(strCnx);
-        string[] idTecnica = new string[3];
+        string[] idTecnica = new string[18];
         static int indiceActual = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            idTecnica[0] = Request.QueryString["tecnica1"];
-            idTecnica[1] = Request.QueryString["tecnica2"];
-            idTecnica[2] = Request.QueryString["tecnica3"];
+            for (int i = 0; i < idTecnica.Length; i++)
+            {
+                idTecnica[i] = (i + 1).ToString();
+            }
+
             if (!IsPostBack)
             {
                 checkBtns();
@@ -65,7 +67,7 @@ namespace CocreacionWeb
             {
                 btnAnterior.Visible = true;
             }
-            if (indiceActual >= 2)
+            if (indiceActual >= idTecnica.Length - 1)
             {
                 btnSiguiente.Visible = false;
             }

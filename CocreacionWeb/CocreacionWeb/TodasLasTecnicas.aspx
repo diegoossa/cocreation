@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListaTecnicas.aspx.cs" Inherits="CocreacionWeb.ListaTecnicas" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TodasLasTecnicas.aspx.cs" Inherits="CocreacionWeb.TodasLasTecnicas" %>
 
 <!DOCTYPE html>
 
@@ -17,7 +17,8 @@
                     <a class="brand">Cocreación</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="active"><a>Técnicas Elegidas</a></li>
+                            <li class="active"><a>Todas las Técnicas</a></li>
+                            <li><a href="Tecnicas.aspx">Administrar Técnicas</a></li>
                         </ul>
                     </div>
                 </div>
@@ -32,7 +33,7 @@
                 </div>
             </div>
             <div class="page-header">
-                <h1>Técnicas Elegidas<small> de Cocreación</small></h1>
+                <h1>Lista de Técnicas<small> de Cocreación</small></h1>
             </div>
                 <div style="float: right;">
                     <asp:LinkButton ID="btnSiguiente" runat="server" ToolTip="Regresar" OnClick="btnSiguiente_Click"><img src="img/siguiente.png" /></asp:LinkButton>

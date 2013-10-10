@@ -16,7 +16,8 @@ namespace CocreacionWeb
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ListaTecnicas.aspx?tecnica1=1&tecnica2=4&tecnica3=6");
+            Response.Redirect("TodasLasTecnicas.aspx");
+            //Response.Redirect("ListaTecnicas.aspx?tecnica1=1&tecnica2=4&tecnica3=6");
         }
     }
 }
